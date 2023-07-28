@@ -10,6 +10,7 @@ import Foundation
 protocol MainViewPresenterProtocol: AnyObject {
     func viewDidloaded()
     func receviedData(name: String)
+    func moveToProfile()
 }
 
 
@@ -38,6 +39,10 @@ extension MainViewPresenter: MainViewPresenterProtocol {
     
     func receviedData(name: String) {
         view?.displayData(name)
+    }
+    
+    func moveToProfile() {
+        router?.navigateTo(to: ProfileVC())
     }
 }
 
