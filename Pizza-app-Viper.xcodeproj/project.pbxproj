@@ -17,6 +17,11 @@
 		04A392EB2A6D194E004DCAA5 /* MainViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392EA2A6D194E004DCAA5 /* MainViewInteractor.swift */; };
 		04A392ED2A6D1A15004DCAA5 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392EC2A6D1A15004DCAA5 /* MainViewPresenter.swift */; };
 		04A392EF2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392EE2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift */; };
+		04A392F22A72A62A004DCAA5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392F12A72A62A004DCAA5 /* ProfileVC.swift */; };
+		04A392F42A72A644004DCAA5 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392F32A72A644004DCAA5 /* ProfilePresenter.swift */; };
+		04A392F62A72A653004DCAA5 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392F52A72A653004DCAA5 /* ProfileInteractor.swift */; };
+		04A392F82A72A660004DCAA5 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392F72A72A660004DCAA5 /* ProfileRouter.swift */; };
+		04A392FA2A72A675004DCAA5 /* ProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392F92A72A675004DCAA5 /* ProfileModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		04A392EA2A6D194E004DCAA5 /* MainViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewInteractor.swift; sourceTree = "<group>"; };
 		04A392EC2A6D1A15004DCAA5 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		04A392EE2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModuleBuilder.swift; sourceTree = "<group>"; };
+		04A392F12A72A62A004DCAA5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		04A392F32A72A644004DCAA5 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		04A392F52A72A653004DCAA5 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		04A392F72A72A660004DCAA5 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		04A392F92A72A675004DCAA5 /* ProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +74,7 @@
 		04A392CB2A6D13B5004DCAA5 /* Pizza-app-Viper */ = {
 			isa = PBXGroup;
 			children = (
+				04A392F02A72A608004DCAA5 /* Profile */,
 				04A392E52A6D1735004DCAA5 /* Screens */,
 				04A392E22A6D156E004DCAA5 /* API */,
 				04A392E02A6D1436004DCAA5 /* Application */,
@@ -109,6 +120,18 @@
 				04A392EE2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		04A392F02A72A608004DCAA5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				04A392F12A72A62A004DCAA5 /* ProfileVC.swift */,
+				04A392F32A72A644004DCAA5 /* ProfilePresenter.swift */,
+				04A392F52A72A653004DCAA5 /* ProfileInteractor.swift */,
+				04A392F72A72A660004DCAA5 /* ProfileRouter.swift */,
+				04A392F92A72A675004DCAA5 /* ProfileModuleBuilder.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,14 +204,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A392FA2A72A675004DCAA5 /* ProfileModuleBuilder.swift in Sources */,
+				04A392F82A72A660004DCAA5 /* ProfileRouter.swift in Sources */,
 				04A392E42A6D16B3004DCAA5 /* DataSevice.swift in Sources */,
 				04A392D12A6D13B5004DCAA5 /* ViewController.swift in Sources */,
 				04A392ED2A6D1A15004DCAA5 /* MainViewPresenter.swift in Sources */,
+				04A392F22A72A62A004DCAA5 /* ProfileVC.swift in Sources */,
 				04A392EF2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift in Sources */,
 				04A392CD2A6D13B5004DCAA5 /* AppDelegate.swift in Sources */,
 				04A392E92A6D18C9004DCAA5 /* MainViewRouter.swift in Sources */,
 				04A392EB2A6D194E004DCAA5 /* MainViewInteractor.swift in Sources */,
+				04A392F42A72A644004DCAA5 /* ProfilePresenter.swift in Sources */,
 				04A392CF2A6D13B5004DCAA5 /* SceneDelegate.swift in Sources */,
+				04A392F62A72A653004DCAA5 /* ProfileInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,7 @@ class MainViewModuleBuilder {
         mainVC.presenter = presenter
         presenter.view = mainVC
         interactor.presenter = presenter
-        router.presenter = presenter
+        router.viewController = mainVC
         return mainVC
     }
 }
