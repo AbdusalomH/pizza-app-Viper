@@ -12,7 +12,7 @@ class ProfileModuleBuilder {
     
     static func builder() -> UIViewController {
         
-        let dataservice = Dataservice()
+        let dataservice = NetworkManager()
         let interactor = ProfileInteractor(service: dataservice)
         let router = ProfileRouter()
         let presenter = ProfilePresenter(interactor: interactor, router: router)
