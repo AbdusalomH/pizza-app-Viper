@@ -18,15 +18,15 @@ class ProfileInteractor: ProfileInteractorProtocol {
     weak var presenter: ProfilePresenterProtocol?
     
     
-    let service: DataServiceProtocol
+    let service: NetworkManagerProtocol
     
-    init(service: DataServiceProtocol) {
+    init(service: NetworkManagerProtocol) {
         self.service = service
     }
     
     func getDataFromServer() {
-        service.getPizzaData { [weak self] name in
-            self?.presenter?.getData(name: name)
+        service.getPizzaDataFromServer { data in
+            print(data)
         }
     }
 }

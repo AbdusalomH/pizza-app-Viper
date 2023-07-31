@@ -18,16 +18,15 @@ protocol MainRouterProtocol: AnyObject {
 
 class MainViewRouter {
     
-    weak var viewController: ViewController?
+    weak var viewController: MainVC?
     
 }
 
 extension MainViewRouter: MainRouterProtocol {
     
     func navigateTo(to: UIViewController) {
-        let vc
         
-        viewController?.present(to,animated: true)
+
     }
     
     func dismissController() {

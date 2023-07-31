@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040AB83D2A738A5A000A45C3 /* SaleItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB83C2A738A5A000A45C3 /* SaleItemsCell.swift */; };
+		040AB83F2A738A68000A45C3 /* MenuItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB83E2A738A68000A45C3 /* MenuItemsCell.swift */; };
+		040AB8412A738A93000A45C3 /* MenuDetailsBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB8402A738A93000A45C3 /* MenuDetailsBaseCell.swift */; };
+		040AB8432A738AA4000A45C3 /* PizzaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB8422A738AA4000A45C3 /* PizzaCell.swift */; };
+		040AB8452A738AB2000A45C3 /* ComboCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB8442A738AB2000A45C3 /* ComboCell.swift */; };
+		040AB8472A738AC2000A45C3 /* ZakuskiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB8462A738AC2000A45C3 /* ZakuskiCell.swift */; };
+		040AB84A2A738E50000A45C3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB8492A738E50000A45C3 /* Models.swift */; };
+		040AB84D2A739045000A45C3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 040AB84C2A739045000A45C3 /* SDWebImage */; };
 		04A392CD2A6D13B5004DCAA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392CC2A6D13B5004DCAA5 /* AppDelegate.swift */; };
 		04A392CF2A6D13B5004DCAA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392CE2A6D13B5004DCAA5 /* SceneDelegate.swift */; };
-		04A392D12A6D13B5004DCAA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392D02A6D13B5004DCAA5 /* ViewController.swift */; };
+		04A392D12A6D13B5004DCAA5 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392D02A6D13B5004DCAA5 /* MainVC.swift */; };
 		04A392D62A6D13BC004DCAA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A392D52A6D13BC004DCAA5 /* Assets.xcassets */; };
 		04A392D92A6D13BC004DCAA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A392D72A6D13BC004DCAA5 /* LaunchScreen.storyboard */; };
-		04A392E42A6D16B3004DCAA5 /* DataSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392E32A6D16B3004DCAA5 /* DataSevice.swift */; };
+		04A392E42A6D16B3004DCAA5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392E32A6D16B3004DCAA5 /* NetworkManager.swift */; };
 		04A392E92A6D18C9004DCAA5 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392E82A6D18C9004DCAA5 /* MainViewRouter.swift */; };
 		04A392EB2A6D194E004DCAA5 /* MainViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392EA2A6D194E004DCAA5 /* MainViewInteractor.swift */; };
 		04A392ED2A6D1A15004DCAA5 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A392EC2A6D1A15004DCAA5 /* MainViewPresenter.swift */; };
@@ -25,14 +33,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040AB83C2A738A5A000A45C3 /* SaleItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleItemsCell.swift; sourceTree = "<group>"; };
+		040AB83E2A738A68000A45C3 /* MenuItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsCell.swift; sourceTree = "<group>"; };
+		040AB8402A738A93000A45C3 /* MenuDetailsBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailsBaseCell.swift; sourceTree = "<group>"; };
+		040AB8422A738AA4000A45C3 /* PizzaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCell.swift; sourceTree = "<group>"; };
+		040AB8442A738AB2000A45C3 /* ComboCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboCell.swift; sourceTree = "<group>"; };
+		040AB8462A738AC2000A45C3 /* ZakuskiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZakuskiCell.swift; sourceTree = "<group>"; };
+		040AB8492A738E50000A45C3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		04A392C92A6D13B5004DCAA5 /* Pizza-app-Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pizza-app-Viper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A392CC2A6D13B5004DCAA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A392CE2A6D13B5004DCAA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04A392D02A6D13B5004DCAA5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04A392D02A6D13B5004DCAA5 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = ../MainVC.swift; sourceTree = "<group>"; };
 		04A392D52A6D13BC004DCAA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A392D82A6D13BC004DCAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A392DA2A6D13BC004DCAA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04A392E32A6D16B3004DCAA5 /* DataSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSevice.swift; sourceTree = "<group>"; };
+		04A392E32A6D16B3004DCAA5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		04A392E82A6D18C9004DCAA5 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		04A392EA2A6D194E004DCAA5 /* MainViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewInteractor.swift; sourceTree = "<group>"; };
 		04A392EC2A6D1A15004DCAA5 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
@@ -49,12 +64,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040AB84D2A739045000A45C3 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040AB83A2A7386EB000A45C3 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				040AB83B2A738942000A45C3 /* MainVCCells */,
+				04A392D02A6D13B5004DCAA5 /* MainVC.swift */,
+				04A392EC2A6D1A15004DCAA5 /* MainViewPresenter.swift */,
+				04A392E82A6D18C9004DCAA5 /* MainViewRouter.swift */,
+				04A392EA2A6D194E004DCAA5 /* MainViewInteractor.swift */,
+				04A392EE2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		040AB83B2A738942000A45C3 /* MainVCCells */ = {
+			isa = PBXGroup;
+			children = (
+				040AB83C2A738A5A000A45C3 /* SaleItemsCell.swift */,
+				040AB83E2A738A68000A45C3 /* MenuItemsCell.swift */,
+				040AB8402A738A93000A45C3 /* MenuDetailsBaseCell.swift */,
+				040AB8422A738AA4000A45C3 /* PizzaCell.swift */,
+				040AB8442A738AB2000A45C3 /* ComboCell.swift */,
+				040AB8462A738AC2000A45C3 /* ZakuskiCell.swift */,
+			);
+			path = MainVCCells;
+			sourceTree = "<group>";
+		};
+		040AB8482A738E2E000A45C3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				040AB8492A738E50000A45C3 /* Models.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		04A392C02A6D13B5004DCAA5 = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +124,7 @@
 		04A392CB2A6D13B5004DCAA5 /* Pizza-app-Viper */ = {
 			isa = PBXGroup;
 			children = (
-				04A392F02A72A608004DCAA5 /* Profile */,
-				04A392E52A6D1735004DCAA5 /* Screens */,
+				04A392E52A6D1735004DCAA5 /* Modules */,
 				04A392E22A6D156E004DCAA5 /* API */,
 				04A392E02A6D1436004DCAA5 /* Application */,
 				04A392E12A6D1443004DCAA5 /* Resources */,
@@ -105,21 +154,19 @@
 		04A392E22A6D156E004DCAA5 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				04A392E32A6D16B3004DCAA5 /* DataSevice.swift */,
+				04A392E32A6D16B3004DCAA5 /* NetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
 		};
-		04A392E52A6D1735004DCAA5 /* Screens */ = {
+		04A392E52A6D1735004DCAA5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				04A392D02A6D13B5004DCAA5 /* ViewController.swift */,
-				04A392EC2A6D1A15004DCAA5 /* MainViewPresenter.swift */,
-				04A392E82A6D18C9004DCAA5 /* MainViewRouter.swift */,
-				04A392EA2A6D194E004DCAA5 /* MainViewInteractor.swift */,
-				04A392EE2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift */,
+				040AB8482A738E2E000A45C3 /* Entities */,
+				040AB83A2A7386EB000A45C3 /* MainVC */,
+				04A392F02A72A608004DCAA5 /* Profile */,
 			);
-			path = Screens;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		04A392F02A72A608004DCAA5 /* Profile */ = {
@@ -127,8 +174,8 @@
 			children = (
 				04A392F12A72A62A004DCAA5 /* ProfileVC.swift */,
 				04A392F32A72A644004DCAA5 /* ProfilePresenter.swift */,
-				04A392F52A72A653004DCAA5 /* ProfileInteractor.swift */,
 				04A392F72A72A660004DCAA5 /* ProfileRouter.swift */,
+				04A392F52A72A653004DCAA5 /* ProfileInteractor.swift */,
 				04A392F92A72A675004DCAA5 /* ProfileModuleBuilder.swift */,
 			);
 			path = Profile;
@@ -150,6 +197,9 @@
 			dependencies = (
 			);
 			name = "Pizza-app-Viper";
+			packageProductDependencies = (
+				040AB84C2A739045000A45C3 /* SDWebImage */,
+			);
 			productName = "Pizza-app-Viper";
 			productReference = 04A392C92A6D13B5004DCAA5 /* Pizza-app-Viper.app */;
 			productType = "com.apple.product-type.application";
@@ -178,6 +228,9 @@
 				Base,
 			);
 			mainGroup = 04A392C02A6D13B5004DCAA5;
+			packageReferences = (
+				040AB84B2A739045000A45C3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 04A392CA2A6D13B5004DCAA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,18 +258,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A392FA2A72A675004DCAA5 /* ProfileModuleBuilder.swift in Sources */,
+				040AB83F2A738A68000A45C3 /* MenuItemsCell.swift in Sources */,
 				04A392F82A72A660004DCAA5 /* ProfileRouter.swift in Sources */,
-				04A392E42A6D16B3004DCAA5 /* DataSevice.swift in Sources */,
-				04A392D12A6D13B5004DCAA5 /* ViewController.swift in Sources */,
+				04A392E42A6D16B3004DCAA5 /* NetworkManager.swift in Sources */,
+				040AB83D2A738A5A000A45C3 /* SaleItemsCell.swift in Sources */,
+				04A392D12A6D13B5004DCAA5 /* MainVC.swift in Sources */,
+				040AB8452A738AB2000A45C3 /* ComboCell.swift in Sources */,
 				04A392ED2A6D1A15004DCAA5 /* MainViewPresenter.swift in Sources */,
 				04A392F22A72A62A004DCAA5 /* ProfileVC.swift in Sources */,
 				04A392EF2A6D1AEE004DCAA5 /* MainViewModuleBuilder.swift in Sources */,
 				04A392CD2A6D13B5004DCAA5 /* AppDelegate.swift in Sources */,
+				040AB8412A738A93000A45C3 /* MenuDetailsBaseCell.swift in Sources */,
 				04A392E92A6D18C9004DCAA5 /* MainViewRouter.swift in Sources */,
 				04A392EB2A6D194E004DCAA5 /* MainViewInteractor.swift in Sources */,
 				04A392F42A72A644004DCAA5 /* ProfilePresenter.swift in Sources */,
 				04A392CF2A6D13B5004DCAA5 /* SceneDelegate.swift in Sources */,
+				040AB8472A738AC2000A45C3 /* ZakuskiCell.swift in Sources */,
+				040AB8432A738AA4000A45C3 /* PizzaCell.swift in Sources */,
 				04A392F62A72A653004DCAA5 /* ProfileInteractor.swift in Sources */,
+				040AB84A2A738E50000A45C3 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +484,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		040AB84B2A739045000A45C3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		040AB84C2A739045000A45C3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040AB84B2A739045000A45C3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04A392C12A6D13B5004DCAA5 /* Project object */;
 }
