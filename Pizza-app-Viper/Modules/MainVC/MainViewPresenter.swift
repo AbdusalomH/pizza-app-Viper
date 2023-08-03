@@ -9,7 +9,6 @@ import Foundation
 
 protocol MainViewPresenterProtocol: AnyObject {
     func viewDidloaded()
-    func pushdata() -> [MenuModel]
     func receivedPizzaData(data: [MenuModel])
     func receivedComboData(data: [MenuModel])
     func receivedMenuItems(data: [String])
@@ -23,11 +22,9 @@ class MainViewPresenter {
     
     weak var view: MainViewProtocol?
     
-    
-    var receivedData: [MenuModel] = []
-
     var router: MainRouterProtocol?
     var interactor: MainViewInteractorProtocol?
+    
     
     init(router: MainRouterProtocol, interactor: MainViewInteractorProtocol) {
         self.router = router
@@ -38,12 +35,7 @@ class MainViewPresenter {
 
 extension MainViewPresenter: MainViewPresenterProtocol {
     
-    
-    
-    func pushdata() -> [MenuModel] {
-        return receivedData
-    }
-    
+
 
     func viewDidloaded() {
         interactor?.fetchMenuData()
@@ -56,13 +48,12 @@ extension MainViewPresenter: MainViewPresenterProtocol {
 
     
     func receivedPizzaData(data: [MenuModel]) {
-        view?.menudetails(data: data)
-        receivedData = data
+        view?.menuPizzadetails(data: data)
     }
     
     
     func receivedComboData(data: [MenuModel]) {
-        view?.menudetails(data: data)
+        view?.menuCombodetails(data: data)
     }
 
     
