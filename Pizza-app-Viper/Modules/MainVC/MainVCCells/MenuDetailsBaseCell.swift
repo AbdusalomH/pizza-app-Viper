@@ -26,7 +26,11 @@ class MenuDetailsBaseCell: UICollectionViewCell, UICollectionViewDelegate, UICol
     static let identifier = "menuDetailsCell"
     
     
-    var menuDetails: [MenuModel] = []
+    var menuItemsData: [MenuModel] = [] {
+        didSet {
+            detailsCollection.reloadData()
+        }
+    }
     
     
     lazy var detailsCollection: UICollectionView = {
@@ -42,20 +46,6 @@ class MenuDetailsBaseCell: UICollectionViewCell, UICollectionViewDelegate, UICol
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        
-        NetworkManager.shared.getPizzaDataFromServer { [weak self] result in
-            switch result {
-            case .success(let success):
-                print(success)
-                DispatchQueue.main.async {
-                    self?.menuDetails = success
-                    self?.detailsCollection.reloadData()
-                }
-
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 
     
@@ -95,14 +85,14 @@ class MenuDetailsBaseCell: UICollectionViewCell, UICollectionViewDelegate, UICol
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return menuDetails.count
+        return menuItemsData.count
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let receivedData = menuDetails[indexPath.row]
+        let receivedData = menuItemsData[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DestailCollectionCell.identifier, for: indexPath) as! DestailCollectionCell
         let price = receivedData.price.first!
         cell.filloutTable(imagename: receivedData.image, pizzaName: receivedData.title, pizzaDescription: receivedData.pizzaDescription, pizzaPrice: "от \(price) р")
@@ -122,6 +112,7 @@ extension MenuDetailsBaseCell {
         }
     }
 }
+
 
 
 

@@ -11,8 +11,8 @@ import UIKit
 protocol MainViewProtocol: AnyObject {
     func saleMenuData(name: [SaleModel])
     func headerMenuData(names: [String])
-    func menudetails(data: [MenuModel])
-    
+    func menuPizzadetails(data: [MenuModel])
+    func menuCombodetails(data: [MenuModel])
 }
 
 
@@ -23,9 +23,10 @@ class MainVC: UIViewController {
     var presenter: MainViewPresenterProtocol?
     
     
-    var saleItemsData: [SaleModel] = []
-    var menuDetailsData: [String] = ["Пицца", "Комбо", "Juices", "Burgers"]
-    var receviedMenuItemsData: [MenuModel] = []
+    var salesItemsData: [SaleModel] = saleItemsData
+    var headerMenuData: [String] = []
+    var menuItemsData: [MenuModel] = []
+    var dividedData: [[MenuModel]] = [[]]
     
     
     var saleCollectionHeigtConstraint: NSLayoutConstraint!
@@ -45,7 +46,7 @@ class MainVC: UIViewController {
         return collection
     }()
     
-    lazy var menuItemsCollection: UICollectionView = {
+    lazy var headerMenuCollection: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: menuItemsFlowlayout())
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.delegate = self
@@ -53,10 +54,11 @@ class MainVC: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         collection.backgroundColor = #colorLiteral(red: 0.9514434934, green: 0.9609040618, blue: 0.9738582969, alpha: 1)
         collection.register(MenuItemsCell.self, forCellWithReuseIdentifier: MenuItemsCell.indentifier)
+        
         return collection
     }()
     
-    lazy var menuDetailsCollection: UICollectionView = {
+    lazy var menuItemsCollection: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: menuDetailsFlowlayout())
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.delegate = self
@@ -85,31 +87,31 @@ class MainVC: UIViewController {
     func setupView() {
 
         view.addSubview(saleItemsCollection)
+        view.addSubview(headerMenuCollection)
         view.addSubview(menuItemsCollection)
-        view.addSubview(menuDetailsCollection)
         
         NSLayoutConstraint.activate([
             saleItemsCollection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             saleItemsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             saleItemsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
+            headerMenuCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerMenuCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerMenuCollection.heightAnchor.constraint(equalToConstant: 45),
+            
             menuItemsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             menuItemsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            menuItemsCollection.heightAnchor.constraint(equalToConstant: 45),
-            
-            menuDetailsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            menuDetailsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            menuDetailsCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            menuItemsCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             
         ])
         
         saleCollectionHeigtConstraint = saleItemsCollection.heightAnchor.constraint(equalToConstant: 135)
         saleCollectionHeigtConstraint.isActive = true
         
-        menuItemsCollectionTopConstraints = menuItemsCollection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 135)
+        menuItemsCollectionTopConstraints = headerMenuCollection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 140)
         menuItemsCollectionTopConstraints.isActive = true
         
-        menuDetailsCollectionTopConstraints = menuDetailsCollection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 180)
+        menuDetailsCollectionTopConstraints = menuItemsCollection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 180)
         menuDetailsCollectionTopConstraints.isActive = true
         
     }
@@ -125,16 +127,27 @@ extension MainVC: MainViewProtocol  {
     }
     
     func headerMenuData(names: [String]) {
-        //menuDetailsData = names
+        headerMenuData = names
+        
+        DispatchQueue.main.async {
+            self.headerMenuCollection.reloadData()
+            self.menuItemsCollection.reloadData()
+        }
+    }
+    
+    func menuPizzadetails(data: [MenuModel]) {
+        menuItemsData.append(contentsOf: data)
+        
         DispatchQueue.main.async {
             self.menuItemsCollection.reloadData()
         }
     }
     
-    func menudetails(data: [MenuModel]) {
-        receviedMenuItemsData = data
+    func menuCombodetails(data: [MenuModel]) {
+        menuItemsData.append(contentsOf: data)
+
         DispatchQueue.main.async {
-            self.menuDetailsCollection.reloadData()
+            self.menuItemsCollection.reloadData()
         }
     }
 }
@@ -162,7 +175,7 @@ extension MainVC {
         let padding:CGFloat              = 5
         let flowLayout                   = UICollectionViewFlowLayout()
         flowLayout.sectionInset          = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize              = CGSize(width: 100, height: 35)
+        flowLayout.itemSize              = CGSize(width: 100, height: 30)
         flowLayout.scrollDirection       = .horizontal
         return flowLayout
     }
@@ -171,7 +184,7 @@ extension MainVC {
     func menuDetailsFlowlayout() -> UICollectionViewFlowLayout {
         
         let flowLayout                   = UICollectionViewFlowLayout()
-        flowLayout.sectionInset          = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        flowLayout.sectionInset          = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         flowLayout.itemSize              = CGSize(width: view.bounds.width, height: view.frame.height - 150)
         flowLayout.scrollDirection       = .horizontal
         flowLayout.minimumLineSpacing    = 0
@@ -186,15 +199,16 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
         switch collectionView {
         case saleItemsCollection:
             
-            return saleItemsData.count
+            return salesItemsData.count
             
-        case menuDetailsCollection:
-
-            return 4
+        case headerMenuCollection:
+            
+            return headerMenuData.count
             
         case menuItemsCollection:
-            return 4
-            
+
+            return headerMenuData.count
+    
         default:
             break
         }
@@ -209,38 +223,21 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
             
         case saleItemsCollection:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SaleItemsCell.indetifier, for: indexPath) as! SaleItemsCell
-            cell.filloutSale(imageName: saleItemsData[indexPath.row].image)
+            cell.filloutSale(imageName: salesItemsData[indexPath.row].image)
+            return cell
+            
+        case headerMenuCollection:
+
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemsCell.indentifier, for: indexPath) as! MenuItemsCell
+            cell.getTitles(name: headerMenuData[indexPath.row])
+            
             return cell
         
-        case menuDetailsCollection:
-            
-            
-            if indexPath.item == 0 {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PizzaCell.PizzaDescriptionCell, for: indexPath) as! PizzaCell
-                cell.delegate = self
-                return cell
-            } else if indexPath.item == 1 {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComboCell.ComboCellId, for: indexPath) as! ComboCell
-                cell.delegate = self
-                return cell
-                
-            } else if indexPath.item == 2 {
-                
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZakuskiCell.juicesCellId, for: indexPath) as! ZakuskiCell
-                cell.delegate = self
-                return cell
-            } else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PizzaCell.PizzaDescriptionCell, for: indexPath) as! PizzaCell
-                cell.delegate = self
-                return cell
-            }
-                
- 
         case menuItemsCollection:
-
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemsCell.indentifier, for: indexPath) as! MenuItemsCell
-            cell.getTitles(name: menuDetailsData[indexPath.row])
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuDetailsBaseCell.identifier, for: indexPath) as! MenuDetailsBaseCell
+            cell.delegate = self
+            cell.menuItemsData = menuItemsData
             return cell
         default:
             break
@@ -251,18 +248,18 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func scrollToSelectedSection(row: Int) {
         let index = IndexPath(row: row, section: 0)
-        menuDetailsCollection.isPagingEnabled = false
-        menuDetailsCollection.selectItem(at: index, animated: true, scrollPosition: .centeredHorizontally)
+        menuItemsCollection.isPagingEnabled = false
+        menuItemsCollection.selectItem(at: index, animated: true, scrollPosition: .centeredHorizontally)
     }
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         switch scrollView {
-        case menuDetailsCollection:
+        case menuItemsCollection:
             let index = Int(scrollView.contentOffset.x / view.frame.width)
             let indexpath = IndexPath(row: index, section: 0)
-            menuItemsCollection.selectItem(at: indexpath, animated: true, scrollPosition: .centeredHorizontally)
-            menuItemsCollection.scrollToItem(at: indexpath, at: .centeredHorizontally, animated: false)
+            headerMenuCollection.selectItem(at: indexpath, animated: true, scrollPosition: .centeredHorizontally)
+            headerMenuCollection.scrollToItem(at: indexpath, at: .centeredHorizontally, animated: false)
         default:
             break
         }
@@ -271,9 +268,9 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
-        case menuItemsCollection:
+        case headerMenuCollection:
             self.scrollToSelectedSection(row: indexPath.row)
-            self.menuDetailsCollection.isPagingEnabled = true
+            self.menuItemsCollection.isPagingEnabled = true
         default:
             break
         }
@@ -282,6 +279,7 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 
 extension MainVC: MenuDetailsCellDelegate {
+    
     func didScrollUp(in cell: MenuDetailsBaseCell) {
         menuItemsCollectionTopConstraints.constant = 135
         menuDetailsCollectionTopConstraints.constant = 180
@@ -291,7 +289,7 @@ extension MainVC: MenuDetailsCellDelegate {
             self.view.layoutIfNeeded()
         }) { done in
             if done {
-                self.menuDetailsCollection.reloadData()
+                self.menuItemsCollection.reloadData()
             }
         }
     }
@@ -305,7 +303,7 @@ extension MainVC: MenuDetailsCellDelegate {
             self.view.layoutIfNeeded()
         }) { done in
             if done {
-                self.menuDetailsCollection.reloadData()
+                self.menuItemsCollection.reloadData()
             }
         }
     }
